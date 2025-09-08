@@ -1,0 +1,134 @@
+/* Brand tokens */
+:root{
+  --amber:#E49E10;
+  --bg:#0b0b0c;
+  --panel:#111114;
+  --ink:#f5f5f7;
+  --muted:#a9abb3;
+  --glow: 0 0 35px rgba(228,158,16,.35);
+  --radius:14px;
+  --radius-sm:10px;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --maxw:1120px;
+  --ff: Bahnschrift, Montserrat, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:linear-gradient(180deg, #000 0%, #0b0b0c 70%);
+  color:var(--ink);
+  font-family:var(--ff);
+  line-height:1.6;
+}
+
+.container{width:min(100%, var(--maxw)); margin-inline:auto; padding:0 20px}
+.site-header{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter:saturate(160%) blur(8px);
+  background:rgba(10,10,12,.4);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav{display:flex; align-items:center; gap:16px; padding:14px 0}
+.brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink); font-weight:800; letter-spacing:.3px}
+.logo-dot{width:14px; height:14px; border-radius:50%; background:var(--amber); box-shadow: var(--glow)}
+.brand-name{text-transform:uppercase}
+.menu{margin-left:auto; display:flex; gap:18px}
+.menu a{color:var(--ink); text-decoration:none; opacity:.85}
+.menu a:hover{opacity:1}
+.only-desktop{display:none}
+.nav-toggle{margin-left:auto; font-size:20px; background:none; border:none; color:var(--ink); cursor:pointer}
+
+@media (min-width:880px){
+  .nav-toggle{display:none}
+  .menu{display:flex}
+  .only-desktop{display:inline-flex}
+}
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  border:1px solid rgba(255,255,255,.12); border-radius:999px; padding:12px 18px;
+  text-decoration:none; color:var(--ink); cursor:pointer; transition:.2s;
+}
+.btn.primary{background:var(--amber); color:#111; border-color:transparent; box-shadow: var(--glow)}
+.btn.ghost{background:transparent}
+.btn:hover{transform:translateY(-1px)}
+.btn.block{width:100%}
+.btn.sm{padding:8px 12px; font-size:.9rem}
+
+.hero{position:relative; padding:96px 0 42px}
+.hero-inner{display:flex; flex-direction:column; gap:20px}
+.hero h1{font-size:clamp(36px, 4.6vw, 58px); line-height:1.1; margin:0}
+.accent{color:var(--amber)}
+.lead{font-size:1.125rem; opacity:.9}
+.cta-row{display:flex; gap:12px; flex-wrap:wrap}
+.badges{display:flex; gap:10px; list-style:none; padding:0; margin:6px 0 0}
+.badges li{padding:8px 12px; border:1px solid rgba(255,255,255,.12); border-radius:999px; font-size:.95rem; color:var(--muted); background:rgba(255,255,255,.03)}
+
+.hero-bg{
+  position:absolute; inset:0; background:
+    radial-gradient(800px 800px at 20% 10%, rgba(228,158,16,.12), transparent 60%),
+    radial-gradient(600px 500px at 80% 0%, rgba(228,158,16,.06), transparent 60%);
+  pointer-events:none;
+}
+
+.section{padding:64px 0}
+.section.alt{background:linear-gradient(180deg, var(--panel), transparent)}
+.grid-2{display:grid; gap:26px}
+@media (min-width:900px){ .grid-2{grid-template-columns:1.1fr .9fr} }
+
+.card{
+  background:rgba(17,17,20,.66);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:var(--radius);
+  padding:20px;
+  box-shadow:var(--shadow);
+}
+
+.stat{display:flex; flex-direction:column; gap:14px}
+.stat-row{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+.stat-num{font-size:2rem; font-weight:800; display:block}
+.stat-label{font-size:.9rem; color:var(--muted)}
+
+.checklist{padding-left:18px}
+.checklist li{margin:.25rem 0}
+
+.cards{display:grid; gap:16px}
+@media (min-width:760px){ .cards{grid-template-columns:repeat(2,1fr)} }
+@media (min-width:1100px){ .cards{grid-template-columns:repeat(4,1fr)} }
+.card h3{margin-top:0}
+
+.timeline{display:grid; gap:14px}
+.event{display:grid; grid-template-columns:90px 1fr; gap:16px; align-items:start}
+.event-date{
+  font-weight:800; color:#111; background:var(--amber); border-radius:var(--radius-sm);
+  display:flex; align-items:center; justify-content:center; padding:12px 10px; box-shadow:var(--glow)
+}
+.event-body h4{margin:0 0 6px}
+
+.pricing{display:grid; gap:16px; align-items:stretch}
+@media (min-width:900px){ .pricing{grid-template-columns:repeat(3,1fr)} }
+.price-card{padding:20px; border-radius:var(--radius); background:rgba(17,17,20,.66); border:1px solid rgba(255,255,255,.08)}
+.price{font-size:2rem; font-weight:800; margin:.2rem 0 1rem}
+.price-card.featured{outline:2px solid var(--amber)}
+
+.contact-list{padding-left:0; list-style:none}
+.contact-list li{margin:.3rem 0}
+.contact-form label{display:block; margin:.6rem 0 .2rem}
+.contact-form input, .contact-form textarea{
+  width:100%; background:#0f0f12; border:1px solid rgba(255,255,255,.12);
+  color:var(--ink); border-radius:10px; padding:12px;
+}
+.contact-form input:focus, .contact-form textarea:focus{outline:2px solid var(--amber)}
+
+.muted{color:var(--muted)}
+.tiny{font-size:.9rem}
+.center{text-align:center}
+
+.site-footer{
+  border-top:1px solid rgba(255,255,255,.06);
+  background:rgba(10,10,12,.4);
+  padding:18px 0;
+}
+.footer-inner{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap}
