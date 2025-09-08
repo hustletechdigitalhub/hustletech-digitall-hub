@@ -138,3 +138,17 @@ body{
   margin-right: 8px;
   vertical-align: middle;
 }
+.site-logo {
+  height: 36px;
+  width: auto;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.brand {
+  display: flex;
+  align-items: center;
+}
+.brand-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
